@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Fitz-boot</title>
+</head>
+<body>
+<h1>Hello Wolrd! Welcome to Fitz-boot  </h1>
+<br/>
+<img src="static/chinascope.png" width="100" height="50"/>
+<br/>
+<img th:src="@{/static/img/code.jpg}" width="100" height="50"/>
+<br/>
+<img th:src="@{/static/chinascope.png}" width="100" height="50"/>
+
+<h2>index</h2>
+
+<span>已有帐号， <a th:href="@{/}">立即登录</a></span>
+</body>
+</html>
