@@ -9,6 +9,7 @@
  */
 package cn.bw.fitzboot.controller;
 
+import cn.bw.core.DateUtil;
 import cn.bw.fitzboot.enity.User;
 import cn.bw.fitzboot.repository.UserRepository;
 import com.alibaba.fastjson.JSON;
@@ -39,7 +40,8 @@ public class BootController {
 
     @RequestMapping(value = {"/index"})
     public ModelAndView index(){
-        log.info("welcome to Fitz-boot");
+        String timeNow = DateUtil.getCurrentDateStr();
+        log.info("welcome to Fitz-boot, timeNow: {}", timeNow);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
         return mv;
