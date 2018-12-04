@@ -11,5 +11,6 @@ public class FitzBootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FitzBootApplication.class, args);
+        System.out.println("Hello");
     }
 }
