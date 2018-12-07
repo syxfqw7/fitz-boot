@@ -47,12 +47,13 @@ public class BootController {
         return mv;
     }
 
-    @RequestMapping(value = {"/login"})
+    /*@RequestMapping(value = {"/login"})
     public ModelAndView login(){
+        log.info("login..");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
         return mv;
-    }
+    }*/
 
     @ResponseBody
     @RequestMapping("/queryMsg")
