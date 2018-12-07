@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>console</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"/>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header class="el-col el-col-24 main-header">
+                <div class="el-col el-col-4">
+                    CONSOLE2
+                </div>
+                <div class="el-col el-col-10">
+                    <el-button v-model="isCollapse" v-on:click="toggleAside" type="primary" icon="el-icon-menu" circle></el-button>
+                </div>
+                <div style="text-align: right;padding-right: 35px;float: right" class="el-col el-col-10">
+                    hello, Fitz
+                </div>
+            </el-header>
+
+            <el-container class="console-main">
+                <console-leftmenu asideWidth="600px" isCollapse=true></console-leftmenu>
+                <!--<el-aside style="background-color: rgb(238, 241, 246)" ref="asideStyle" :style="{width: asideWidth}">
+                    <el-menu :default-openeds="['1']" :collapse="isCollapse" style="height: 100%" :collapse-transition="false">
+                        <el-submenu index="1">
+                            <template slot="title">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">导航一</span>
+                            </template>
+                            <el-menu-item-group>
+                                <template slot="title">分组一</template>
+                                <el-menu-item index="1-1">选项1</el-menu-item>
+                                <el-menu-item index="1-2">选项2</el-menu-item>
+                            </el-menu-item-group>
+                            <el-menu-item-group title="分组2">
+                                <el-menu-item index="1-3">选项3</el-menu-item>
+                            </el-menu-item-group>
+                            <el-submenu index="1-4">
+                                <template slot="title">选项4</template>
+                                <el-menu-item index="1-4-1">选项4-1</el-menu-item>
+                            </el-submenu>
+                        </el-submenu>
+                        <el-submenu index="2">
+                            <template slot="title"><i class="el-icon-menu"></i>
+                                <span slot="title">导航二</span>
+                            </template>
+                            <el-menu-item-group>
+                                <template slot="title">分组一</template>
+                                <el-menu-item index="2-1">选项1</el-menu-item>
+                                <el-menu-item index="2-2">选项2</el-menu-item>
+                            </el-menu-item-group>
+                            <el-menu-item-group title="分组2">
+                                <el-menu-item index="2-3">选项3</el-menu-item>
+                            </el-menu-item-group>
+                            <el-submenu index="2-4">
+                                <template slot="title">选项4</template>
+                                <el-menu-item index="2-4-1">选项4-1</el-menu-item>
+                            </el-submenu>
+                        </el-submenu>
+                        <el-submenu index="3">
+                            <template slot="title"><i class="el-icon-setting"></i>
+                                <span slot="title">设置</span>
+                            </template>
+                            <el-menu-item-group>
+                                <template slot="title">分组一</template>
+                                <el-menu-item index="3-1">选项1</el-menu-item>
+                                <el-menu-item index="3-2">选项2</el-menu-item>
+                            </el-menu-item-group>
+                            <el-menu-item-group title="分组2">
+                                <el-menu-item index="3-3">选项3</el-menu-item>
+                            </el-menu-item-group>
+                            <el-submenu index="3-4">
+                                <template slot="title">选项4</template>
+                                <el-menu-item index="3-4-1">选项4-1</el-menu-item>
+                            </el-submenu>
+                        </el-submenu>
+                    </el-menu>
+                </el-aside>-->
+                <el-container>
+                    <h1>Main</h1>
+                </el-container>
+            </el-container>
+
+        </el-container>
+    </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="static/js/vue/console-leftmenu.js"></script>
+<style>
+    .el-header {
+        background-color: #B3C0D1;
+        color: #333;
+        line-height: 60px;
+    }
+
+    .el-aside {
+        color: #333;
+    }
+
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+    }
+    #app{
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        width:100%
+    }
+    .main-header{
+        height: 60px;
+        line-height: 60px;
+        background: #20a0ff;
+        color: #fff;
+    }
+    .console-main{
+        display: flex;
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        overflow: hidden;
+        width: 100%;
+    }
+</style>
+<script>
+    // 定义一个名为 button-counter 的新组件
+
+    new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                visible: false,
+                isCollapse: true,
+                isSetCollapseAsideMinWidth: true,
+                asideWidth: '200px'
+            }
+        },
+        methods:{
+            toggleAside: function (el) {
+                if(this.isCollapse){
+                    this.isCollapse = false;
+                    this.asideWidth = '200px';
+                }else{
+                    this.isCollapse = true;
+                    this.asideWidth = '65px';
+                }
+            }
+        }
+    })
+</script>
+</html>
