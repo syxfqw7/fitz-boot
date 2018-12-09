@@ -26,4 +26,9 @@ public class ConsoleController {
     public String console(){
         return "console";
     }
+
+    @RequestMapping("/dbView")
+    public String dbView(){
+        return "dbView/dbView";
+    }
 }

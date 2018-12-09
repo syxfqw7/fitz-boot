@@ -10,7 +10,7 @@
         <el-container>
             <el-header class="el-col el-col-24 main-header">
                 <div class="el-col el-col-4">
-                    CONSOLE2
+                    CONSOLE
                 </div>
                 <div class="el-col el-col-10">
                     <el-button v-model="iscollapse" v-on:click="toggleAside" type="primary" icon="el-icon-menu" circle></el-button>
@@ -82,8 +82,8 @@
                   </el-aside>
                 <el-container>
                     <el-tabs v-model="editableTabsValue" type="card" @edit="handleTabsEdit" style="width: 100%" value="console_index">
-                        <el-tab-pane label="首页" name="console_index">
-                            <console-iframe id="0" url="/fitz-boot/index" :iscollapse="iscollapse"/>
+                        <el-tab-pane label="首页" name="0">
+                            <console-iframe id="0" url="/fitz-boot/dbView" :iscollapse="iscollapse"/>
                         </el-tab-pane>
                         <el-tab-pane
                                 :key="item.name"
@@ -165,7 +165,7 @@
                 iscollapse: false,
                 isSetCollapseAsideMinWidth: true,
                 asideWidth: '200px',
-                editableTabsValue: '2',
+                editableTabsValue: '0',
                 editableTabs: [{
                     id: '1',
                     title: 'Tab 1',
