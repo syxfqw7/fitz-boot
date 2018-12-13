@@ -27,8 +27,13 @@ public class CoreTest {
 
     @Test
     public void logCoreTimeTest(){
+
         String timeNow = DateUtil.getCurrentDateStr();
+        System.out.println("sout:"+timeNow);
         log.info("timeNow: {}", timeNow);
+        log.debug("debug msg");
+        log.warn("warn msg");
+        log.error("error msg");
     }
 
     @Test

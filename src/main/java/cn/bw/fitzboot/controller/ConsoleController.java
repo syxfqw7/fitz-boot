@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author jack.xue
  * @create 2018/12/5
- * @since 1.0.0
+ * @since 1.0.0^
  */
 @Controller
 public class ConsoleController {
