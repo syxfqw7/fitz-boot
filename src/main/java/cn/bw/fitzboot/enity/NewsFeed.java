@@ -16,7 +16,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 〈TODO〉<br> 
+ * 〈TODO〉<br>
  *
  * @author jack.xue
  * @create 2018/11/30

@@ -12,7 +12,7 @@ package cn.bw.fitzboot.controller;
 import cn.bw.core.DateUtil;
 import cn.bw.fitzboot.enity.User;
 import cn.bw.fitzboot.repository.UserRepository;
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 
 /**
- * 〈TODO〉<br> 
+ * 〈TODO〉<br>
  *
  * @author jack.xue
  * @create 2018/11/30
@@ -39,7 +40,7 @@ public class BootController {
     private UserRepository userRepository;
 
     @RequestMapping(value = {"/index"})
-    public ModelAndView index(){
+    public ModelAndView index() {
         String timeNow = DateUtil.getCurrentDateStr();
         log.info("welcome to Fitz-boot, timeNow: {}", timeNow);
         ModelAndView mv = new ModelAndView();
@@ -57,14 +58,22 @@ public class BootController {
 
     @ResponseBody
     @RequestMapping("/queryMsg")
-    public String queryMsg(@RequestParam String msg){
-        if(StringUtils.isNotBlank(msg)){
+    public String queryMsg(@RequestParam String msg) {
+        if (StringUtils.isNotBlank(msg)) {
             String res = "";
-            log.info("msg:"+msg);
+            log.info("msg:" + msg);
             List<User> all = userRepository.findAll();
-            res =  JSON.toJSONString(all);
+            User u = new User();
+            u.setId(4L);
+            u.setBirthday(new Date());
+            u.setCreate_date(new Date());
+            u.setUsername("中文uname");
+            u.setPassword("pwd中文");
+            all.add(u);
+            Gson gson = new Gson();
+            res = gson.toJson(all);
             return res;
-        }else{
+        } else {
             return "msg can't be blank";
         }
 
@@ -72,13 +81,13 @@ public class BootController {
 
     @RequestMapping("/deleteUserById")
     @ResponseBody
-    public String deleteUserById(@RequestParam Long id){
-        try{
+    public String deleteUserById(@RequestParam Long id) {
+        try {
             userRepository.delete(id);
             return "success";
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            return "fail,"+e.getMessage();
+            return "fail," + e.getMessage();
         }
 
     }

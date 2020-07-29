@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 〈TODO〉<br> 
+ * 〈TODO〉<br>
  *
  * @author jack.xue
  * @create 2018/12/5
@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ConsoleController {
 
     @RequestMapping("/console")
-    public String console(){
+    public String console() {
         return "console";
     }
 
     @RequestMapping("/dbView")
-    public String dbView(){
+    public String dbView() {
         return "dbView/dbView";
     }
 }

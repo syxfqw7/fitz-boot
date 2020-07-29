@@ -15,7 +15,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * 〈TODO〉<br> 
+ * 〈TODO〉<br>
  *
  * @author jack.xue
  * @create 2018/11/30

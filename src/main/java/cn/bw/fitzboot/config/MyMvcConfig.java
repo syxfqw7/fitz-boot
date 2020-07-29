@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * 〈TODO〉<br> 
+ * 〈TODO〉<br>
  *
  * @author jack.xue
  * @create 2018/12/3
@@ -33,8 +33,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public MultipartResolver multipartResolver(){
-        CommonsMultipartResolver multipartResolver =  new CommonsMultipartResolver();
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(1000000);
         return multipartResolver;
     }

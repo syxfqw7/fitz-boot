@@ -6,99 +6,102 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"/>
 </head>
 <body>
-    <div id="app">
-        <el-container>
-            <el-header class="el-col el-col-24 main-header">
-                <div class="el-col el-col-4">
-                    CONSOLE
-                </div>
-                <div class="el-col el-col-10">
-                    <el-button v-model="iscollapse" v-on:click="toggleAside" type="primary" icon="el-icon-menu" circle></el-button>
-                </div>
-                <div style="text-align: right;padding-right: 35px;float: right" class="el-col el-col-10">
-                    hello, Fitz
-                </div>
-            </el-header>
+<div id="app">
+    <el-container>
+        <el-header class="el-col el-col-24 main-header">
+            <div class="el-col el-col-4">
+                CONSOLE
+            </div>
+            <div class="el-col el-col-10">
+                <el-button v-model="iscollapse" v-on:click="toggleAside" type="primary" icon="el-icon-menu"
+                           circle></el-button>
+            </div>
+            <div style="text-align: right;padding-right: 35px;float: right" class="el-col el-col-10">
+                hello, Fitz
+            </div>
+        </el-header>
 
-            <el-container class="console-main">
+        <el-container class="console-main">
 
-               <!-- <el-aside style="background-color: rgb(238, 241, 246)" ref="asideStyle" :style="{width: asideWidth}">-->
-                <el-aside style="background-color: rgb(238, 241, 246)" ref="asideStyle" :style="{width: autoAsideWith()}">
-                   <!-- <console-leftmenu :iscollapse2="iscollapse"></console-leftmenu>-->
-                      <el-menu :default-openeds="['1']" :collapse="iscollapse" style="height: 100%" :collapse-transition="false" v-on:open="handleMenuOpen" v-on:close="handleMenuOpen">
-                          <el-submenu index="1">
-                              <template slot="title">
-                                  <i class="el-icon-menu"></i>
-                                  <span slot="title">导航一</span>
-                              </template>
-                              <el-menu-item-group>
-                                  <template slot="title">分组一</template>
-                                  <el-menu-item index="1-1" v-on:click="handleTabsEdit('1-1', 'add')">选项1</el-menu-item>
-                                  <el-menu-item index="1-2">选项2</el-menu-item>
-                              </el-menu-item-group>
-                              <el-menu-item-group title="分组2">
-                                  <el-menu-item index="1-3">选项3</el-menu-item>
-                              </el-menu-item-group>
-                              <el-submenu index="1-4">
-                                  <template slot="title">选项4</template>
-                                  <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-                              </el-submenu>
-                          </el-submenu>
-                          <el-submenu index="2">
-                              <template slot="title"><i class="el-icon-menu"></i>
-                                  <span slot="title">导航二</span>
-                              </template>
-                              <el-menu-item-group>
-                                  <template slot="title">分组一</template>
-                                  <el-menu-item index="2-1">选项1</el-menu-item>
-                                  <el-menu-item index="2-2">选项2</el-menu-item>
-                              </el-menu-item-group>
-                              <el-menu-item-group title="分组2">
-                                  <el-menu-item index="2-3">选项3</el-menu-item>
-                              </el-menu-item-group>
-                              <el-submenu index="2-4">
-                                  <template slot="title">选项4</template>
-                                  <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-                              </el-submenu>
-                          </el-submenu>
-                          <el-submenu index="3">
-                              <template slot="title"><i class="el-icon-setting"></i>
-                                  <span slot="title">设置</span>
-                              </template>
-                              <el-menu-item-group>
-                                  <template slot="title">分组一</template>
-                                  <el-menu-item index="3-1">选项1</el-menu-item>
-                                  <el-menu-item index="3-2">选项2</el-menu-item>
-                              </el-menu-item-group>
-                              <el-menu-item-group title="分组2">
-                                  <el-menu-item index="3-3">选项3</el-menu-item>
-                              </el-menu-item-group>
-                              <el-submenu index="3-4">
-                                  <template slot="title">选项4</template>
-                                  <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-                              </el-submenu>
-                          </el-submenu>
-                      </el-menu>
-                  </el-aside>
-                <el-container>
-                    <el-tabs v-model="editableTabsValue" type="card" @edit="handleTabsEdit" style="width: 100%" value="console_index">
-                        <el-tab-pane label="首页" name="0">
-                            <console-iframe id="0" url="/fitz-boot/dbView" :iscollapse="iscollapse"/>
-                        </el-tab-pane>
-                        <el-tab-pane
-                                :key="item.name"
-                                v-for="(item, index) in editableTabs"
-                                :label="item.title"
-                                :name="item.name"
-                                closable>
-                            <console-iframe :id="item.id" url="static/static.html" :iscollapse="iscollapse"/>
-                        </el-tab-pane>
-                    </el-tabs>
-                </el-container>
+            <!-- <el-aside style="background-color: rgb(238, 241, 246)" ref="asideStyle" :style="{width: asideWidth}">-->
+            <el-aside style="background-color: rgb(238, 241, 246)" ref="asideStyle" :style="{width: autoAsideWith()}">
+                <!-- <console-leftmenu :iscollapse2="iscollapse"></console-leftmenu>-->
+                <el-menu :default-openeds="['1']" :collapse="iscollapse" style="height: 100%"
+                         :collapse-transition="false" v-on:open="handleMenuOpen" v-on:close="handleMenuOpen">
+                    <el-submenu index="1">
+                        <template slot="title">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">导航一</span>
+                        </template>
+                        <el-menu-item-group>
+                            <template slot="title">分组一</template>
+                            <el-menu-item index="1-1" v-on:click="handleTabsEdit('1-1', 'add')">选项1</el-menu-item>
+                            <el-menu-item index="1-2">选项2</el-menu-item>
+                        </el-menu-item-group>
+                        <el-menu-item-group title="分组2">
+                            <el-menu-item index="1-3">选项3</el-menu-item>
+                        </el-menu-item-group>
+                        <el-submenu index="1-4">
+                            <template slot="title">选项4</template>
+                            <el-menu-item index="1-4-1">选项4-1</el-menu-item>
+                        </el-submenu>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title"><i class="el-icon-menu"></i>
+                            <span slot="title">导航二</span>
+                        </template>
+                        <el-menu-item-group>
+                            <template slot="title">分组一</template>
+                            <el-menu-item index="2-1">选项1</el-menu-item>
+                            <el-menu-item index="2-2">选项2</el-menu-item>
+                        </el-menu-item-group>
+                        <el-menu-item-group title="分组2">
+                            <el-menu-item index="2-3">选项3</el-menu-item>
+                        </el-menu-item-group>
+                        <el-submenu index="2-4">
+                            <template slot="title">选项4</template>
+                            <el-menu-item index="2-4-1">选项4-1</el-menu-item>
+                        </el-submenu>
+                    </el-submenu>
+                    <el-submenu index="3">
+                        <template slot="title"><i class="el-icon-setting"></i>
+                            <span slot="title">设置</span>
+                        </template>
+                        <el-menu-item-group>
+                            <template slot="title">分组一</template>
+                            <el-menu-item index="3-1">选项1</el-menu-item>
+                            <el-menu-item index="3-2">选项2</el-menu-item>
+                        </el-menu-item-group>
+                        <el-menu-item-group title="分组2">
+                            <el-menu-item index="3-3">选项3</el-menu-item>
+                        </el-menu-item-group>
+                        <el-submenu index="3-4">
+                            <template slot="title">选项4</template>
+                            <el-menu-item index="3-4-1">选项4-1</el-menu-item>
+                        </el-submenu>
+                    </el-submenu>
+                </el-menu>
+            </el-aside>
+            <el-container>
+                <el-tabs v-model="editableTabsValue" type="card" @edit="handleTabsEdit" style="width: 100%"
+                         value="console_index">
+                    <el-tab-pane label="首页" name="0">
+                        <console-iframe id="0" url="/fitz-boot/dbView" :iscollapse="iscollapse"/>
+                    </el-tab-pane>
+                    <el-tab-pane
+                            :key="item.name"
+                            v-for="(item, index) in editableTabs"
+                            :label="item.title"
+                            :name="item.name"
+                            closable>
+                        <console-iframe :id="item.id" url="static/static.html" :iscollapse="iscollapse"/>
+                    </el-tab-pane>
+                </el-tabs>
             </el-container>
-
         </el-container>
-    </div>
+
+    </el-container>
+</div>
 </body>
 <!-- import Vue before Element -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -107,15 +110,17 @@
 <script src="static/js/vue/console-leftmenu.js"></script>
 <script src="static/js/vue/console-iframe.js"></script>
 <style>
-    .ifa{
-        width:100%;
-        height:100%;
-    }
-    .el-tabs__content{
-        border: 1px dotted #a39c9c;
-        border-top:none;
+    .ifa {
+        width: 100%;
         height: 100%;
     }
+
+    .el-tabs__content {
+        border: 1px dotted #a39c9c;
+        border-top: none;
+        height: 100%;
+    }
+
     .el-header {
         background-color: #B3C0D1;
         color: #333;
@@ -126,26 +131,29 @@
         color: #333;
     }
 
-    body{
+    body {
         margin: 0;
         padding: 0;
-        font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+        font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
         font-size: 14px;
         -webkit-font-smoothing: antialiased;
     }
-    #app{
-        position:absolute;
-        top:0px;
-        bottom:0px;
-        width:100%
+
+    #app {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%
     }
-    .main-header{
+
+    .main-header {
         height: 60px;
         line-height: 60px;
         background: #20a0ff;
         color: #fff;
     }
-    .console-main{
+
+    .console-main {
         display: flex;
         position: absolute;
         top: 60px;
@@ -159,7 +167,7 @@
 
     new Vue({
         el: '#app',
-        data: function() {
+        data: function () {
             return {
                 visible: false,
                 iscollapse: false,
@@ -179,12 +187,12 @@
                 }]
             }
         },
-        methods:{
-            autoAsideWith(){
-                if(this.iscollapse){//水平折叠收起
-                    this.asideWidth =  '65px';
-                }else{
-                    this.asideWidth =  '200px';
+        methods: {
+            autoAsideWith() {
+                if (this.iscollapse) {//水平折叠收起
+                    this.asideWidth = '65px';
+                } else {
+                    this.asideWidth = '200px';
                 }
                 return this.asideWidth;
             },
@@ -201,35 +209,38 @@
                 // }
             },
             toggleAside(el) {
-                if(this.iscollapse){
+                if (this.iscollapse) {
                     this.iscollapse = false;
                     this.asideWidth = '200px';
-                }else{
+                } else {
                     this.iscollapse = true;
                     this.asideWidth = '65px';
                 }
             },
             handleTabsEdit(targetName, action) {
-                try{
+                try {
                     if (action === 'add') {
                         //验证是否已打开
                         let tabs = this.editableTabs;
-                        tabs.forEach((tab, index) => {
-                            if (tab.name === targetName) {
-                                this.editableTabsValue = tab.name;
-                                console.log("tab已打开,"+targetName);
-                                throw new Error("tab已打开,"+targetName);
-                            }
-                        });
+                        tabs.forEach((tab, index) = > {
+                            if(tab.name === targetName
+                    )
+                        {
+                            this.editableTabsValue = tab.name;
+                            console.log("tab已打开," + targetName);
+                            throw new Error("tab已打开," + targetName);
+                        }
+                    })
+                        ;
 
                         let rand = Math.random();
                         let newTabName = targetName;
-                        if(!newTabName){
+                        if (!newTabName) {
                             newTabName = rand + '';
                         }
                         this.editableTabs.push({
                             id: rand,
-                            title:  'New Tab' + newTabName,
+                            title: 'New Tab' + newTabName,
                             name: newTabName,
                             content: 'New Tab content'
                         });
@@ -239,31 +250,32 @@
                         let tabs = this.editableTabs;
                         let activeName = this.editableTabsValue;
                         if (activeName === targetName) {
-                            tabs.forEach((tab, index) => {
-                                if (tab.name === targetName) {
-                                    let nextTab = tabs[index + 1] || tabs[index - 1];
-                                    if (nextTab) {
-                                        activeName = nextTab.name;
-                                    }
+                            tabs.forEach((tab, index) = > {
+                                if(tab.name === targetName
+                        )
+                            {
+                                let nextTab = tabs[index + 1] || tabs[index - 1];
+                                if (nextTab) {
+                                    activeName = nextTab.name;
                                 }
-                            });
+                            }
+                        })
+                            ;
                         }
 
                         this.editableTabsValue = activeName;
-                        this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+                        this.editableTabs = tabs.filter(tab = > tab.name !== targetName
+                    )
+                        ;
                     }
-                }catch (e) {
+                } catch (e) {
                     console.log(e.message);
                 }
             }
         },
-        computed :{
-
-
-
-        },
-        watch:{
-            iscollapse : function (val, oldVal) {
+        computed: {},
+        watch: {
+            iscollapse: function (val, oldVal) {
                 console.log('iscollapse new: %s, old: %s', val, oldVal);
 
             }

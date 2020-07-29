@@ -8,6 +8,7 @@
  * jack.xue           2018/11/30           1.0.0              描述
  */
 package cn.bw.fitzboot.repository;
+
 import cn.bw.fitzboot.enity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,7 +16,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 /**
- * 〈TODO〉<br> 
+ * 〈TODO〉<br>
  *
  * @author jack.xue
  * @create 2018/11/30
@@ -28,9 +29,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
  * [PUT][UPDATE] api for update by id: http://localhost:8080/fitz-boot/api/users/9 @@raw:@@ {"username":"robet9","password":"666666"}
  */
 @RepositoryRestResource(path = "users")
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Override
     @RestResource(exported = false)
     void delete(Long aLong);
 

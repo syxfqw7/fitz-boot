@@ -1,9 +1,9 @@
 Vue.component('console-leftmenu', {
-    props:['isCollapse2'],
+    props: ['isCollapse2'],
     data: function () {
         return {
             count: 0,
-            isCollapse3 : this.isCollapse2
+            isCollapse3: this.isCollapse2
         }
     },
     watch: {
